@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="포항제철소 스마트 고로 케이스를 담은 60초 오프닝 영상과 장면 목차, 핵심 사실, 교훈, 토론 질문.">
+<meta property="og:title" content="보는 법을 바꿨다">
+<meta property="og:image" content="media/poster.jpg">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>보는 법을 바꿨다</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;900&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* Layout: 용광로 관찰창처럼 어두운 한 화면 — 영상이 중심, 그 아래 장면 목차가 영상을 조작하고, 사실·교훈·질문이 강의 순서대로 이어진다 */
+  :root {
+    --bg: #0f0c0a;          /* 식은 쇳물 껍질 */
+    --surface: #1a1410;
+    --line: #3a2d24;
+    --ink: #f2e7d8;         /* 잿불 아래 종이빛 */
+    --muted: #b3a191;
+    --molten: #ff7a2a;      /* 1,500℃ */
+    --molten-hot: #ffd27a;
+    --signal: #7fc6ff;      /* 센서 신호 */
+    --serif: "Noto Serif KR", "Nanum Myeongjo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Consolas", monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.7;
+    word-break: keep-all;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding-block: 56px 72px; display: flex; flex-direction: column; gap: 72px; }
+  a { color: var(--signal); }
+  :focus-visible { outline: 2px solid var(--molten-hot); outline-offset: 3px; }
+
+  /* 머리 */
+  header { display: grid; gap: 14px; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .14em; color: var(--molten); text-transform: uppercase; }
+  h1 {
+    font-family: var(--serif); font-weight: 900; font-size: clamp(44px, 9vw, 104px); line-height: 1.04; letter-spacing: -0.03em; margin: 0;
+    text-wrap: balance;
+    background: linear-gradient(100deg, var(--molten-hot) 0%, var(--molten) 45%, #b8340c 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { font-size: clamp(18px, 2.4vw, 22px); color: var(--ink); max-width: 38em; margin: 0; text-wrap: pretty; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+  /* 영상 */
+  .film { display: grid; gap: 14px; }
+  .frame { position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line); }
+  .frame video { display: block; width: 100%; height: 100%; }
+  .chapters { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+  .chapters button {
+    all: unset; cursor: pointer; display: grid; gap: 6px; width: 100%; min-width: 0;
+  }
+  .chapters img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); opacity: .72; transition: opacity .2s, border-color .2s; }
+  .chapters .t { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .chapters .n { font-size: 14px; font-weight: 700; line-height: 1.35; }
+  .chapters button:hover img, .chapters button[aria-current="true"] img { opacity: 1; border-color: var(--molten); }
+  .chapters button[aria-current="true"] .t { color: var(--molten); }
+  .chapters button:focus-visible { outline: 2px solid var(--molten-hot); outline-offset: 3px; }
+
+  /* 본문 공통 */
+  section { display: grid; gap: 22px; }
+  h2 { font-family: var(--serif); font-weight: 900; font-size: clamp(26px, 3.6vw, 36px); line-height: 1.2; margin: 0; letter-spacing: -0.02em; text-wrap: balance; }
+  .sub { color: var(--muted); margin: -10px 0 0; }
+  .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+
+  /* 사실 */
+  .facts { margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .facts div { padding: 20px 18px 6px 0; display: grid; gap: 6px; align-content: start; min-width: 0; }
+  .facts dt { font-family: var(--serif); font-weight: 900; font-size: clamp(30px, 4vw, 42px); line-height: 1.1; color: var(--molten-hot); font-variant-numeric: tabular-nums; }
+  .facts dd { margin: 0; color: var(--ink); font-size: 15px; line-height: 1.55; }
+  .note { font-size: 13px; color: var(--muted); margin: 0; }
+
+  /* 교훈·질문 */
+  ol.lessons { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; counter-reset: l; }
+  ol.lessons li { counter-increment: l; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 14px; }
+  ol.lessons li::before { content: counter(l); grid-row: span 2; font-family: var(--serif); font-weight: 900; font-size: 34px; line-height: 1; color: var(--molten); }
+  ol.lessons strong { font-size: 19px; line-height: 1.4; }
+  ol.lessons p { margin: 0; color: var(--muted); font-size: 15px; }
+  .questions { display: grid; gap: 12px; }
+  .q { background: var(--surface); border-left: 3px solid var(--signal); padding: 16px 20px; display: grid; gap: 4px; }
+  .q .k { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--signal); }
+  .q p { margin: 0; font-size: 17px; line-height: 1.5; }
+  blockquote { margin: 0; padding: 28px 0; border-block: 1px solid var(--line); font-family: var(--serif); font-weight: 500; font-size: clamp(22px, 3.2vw, 32px); line-height: 1.45; text-wrap: balance; }
+  blockquote cite { display: block; margin-top: 10px; font-family: var(--sans); font-style: normal; font-size: 14px; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+  footer p { margin: 0; }
+
+  @media (max-width: 860px) {
+    .chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .two { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding-block: 32px 48px; gap: 56px; }
+    .chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .chapters img { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Day 5 · 케이스 스토리 · 60초 오프닝 영상</span>
+    <h1>보는 법을 바꿨다</h1>
+    <p class="lede">열어 볼 수 없는 1,500℃의 용광로를 명장은 감으로 읽었고, 포항제철소는 데이터로 읽기 시작했습니다. 오늘 배울 예지보전이 국내 현장에서 먼저 증명된 이야기로 강의를 엽니다.</p>
+    <div class="meta"><span>포항제철소 스마트 고로</span><span>WEF 등대공장 · 2019</span><span>자동차특화 AI 융합 전문가 과정</span></div>
+  </header>
+
+  <div class="film">
+    <div class="frame">
+      <video id="film" controls preload="metadata" playsinline poster="media/poster.jpg">
+        <source src="media/film.mp4" type="video/mp4">
+        이 브라우저에서는 영상을 재생할 수 없습니다.
+      </video>
+    </div>
+    <ol class="chapters" id="chapters">
+      <li><button type="button" data-t="0"><img src="media/ch1.jpg" alt="쇳물 위에 1,500℃가 떠오른 장면"><span class="t">0:00</span><span class="n">1,500℃의 블랙박스</span></button></li>
+      <li><button type="button" data-t="9.6"><img src="media/ch2.jpg" alt="세리프 글자 '감'이 자모로 조립된 장면"><span class="t">0:09</span><span class="n">감의 세계</span></button></li>
+      <li><button type="button" data-t="19.2"><img src="media/ch3.jpg" alt="고로 단면과 센서 신호 그래프"><span class="t">0:19</span><span class="n">데이터로 옮기다</span></button></li>
+      <li><button type="button" data-t="28.8"><img src="media/ch4.jpg" alt="점으로 된 지구 위로 등대 광선과 '국내 최초'"><span class="t">0:28</span><span class="n">등대가 되다</span></button></li>
+      <li><button type="button" data-t="40.8"><img src="media/ch5.jpg" alt="명장의 30년이 30개의 화면이 된 격자"><span class="t">0:40</span><span class="n">현장의 변화</span></button></li>
+      <li><button type="button" data-t="50.4"><img src="media/ch6.jpg" alt="'보는 법을 바꿨다'가 쇳물로 차오른 글자"><span class="t">0:50</span><span class="n">전환점의 한 문장</span></button></li>
+    </ol>
+  </div>
+
+  <section aria-labelledby="facts-h">
+    <h2 id="facts-h">케이스 한눈에</h2>
+    <dl class="facts">
+      <div><dt>1,500℃</dt><dd>사람이 들여다볼 수 없는 쇳물 온도. 고로는 한 번 불을 붙이면 십수 년을 멈추지 않는다.</dd></div>
+      <div><dt>2시간 → 실시간</dt><dd>작업자가 두 시간마다 손으로 재던 노열을 센서가 실시간으로 재고, AI가 앞으로의 열 수준을 예측한다.</dd></div>
+      <div><dt>2019.7</dt><dd>세계경제포럼(WEF)이 등대공장으로 선정. 한국 기업으로는 처음이다.</dd></div>
+      <div><dt>30년 → 화면</dt><dd>명장의 판단 사례가 학습 데이터가 되어, 신입도 화면으로 노 상태를 읽는다.</dd></div>
+    </dl>
+    <p class="note">수치는 공개 보도 기준의 개략치입니다. 규모감과 방향을 잡는 데 씁니다.</p>
+  </section>
+
+  <blockquote>“우리는 설비를 바꾼 게 아니라, 보는 법을 바꿨다.”<cite>현장 전환을 이끈 사람들의 공통된 말 · 강의 덱 7쪽</cite></blockquote>
+
+  <div class="two">
+    <section aria-labelledby="lessons-h">
+      <h2 id="lessons-h">이 이야기가 남기는 세 가지</h2>
+      <ol class="lessons">
+        <li><strong>열어 볼 수 없으면 둘러싼 신호를 읽어라</strong><p>내부를 못 보는 설비일수록 센서의 가치가 크다. 오늘 진동·온도·압력을 함께 보는 이유다.</p></li>
+        <li><strong>암묵지를 데이터로 남겨라</strong><p>명장의 감은 정년이 있지만 데이터는 남는다. 예지보전은 기술이자 전수 시스템이다.</p></li>
+        <li><strong>사람은 예외와 판단으로 이동한다</strong><p>AI가 일상을 맡자 명장은 더 어려운 문제로 갔다. 오늘 보고서의 "사람의 역할" 문단이 이것이다.</p></li>
+      </ol>
+    </section>
+    <section aria-labelledby="q-h">
+      <h2 id="q-h">조별 토론 10분</h2>
+      <p class="sub">정답이 아니라 관점을 나눕니다.</p>
+      <div class="questions">
+        <div class="q"><span class="k">Q1 · 현장</span><p>우리 현장에서 직접 측정할 수 없는 상태, "열어 볼 수 없는 것"은 무엇인가?</p></div>
+        <div class="q"><span class="k">Q2 · 전수</span><p>우리 조직 명장의 감을 데이터로 남기려면 무엇부터 기록해야 하나?</p></div>
+        <div class="q"><span class="k">Q3 · 적용</span><p>등대공장에서 우리가 가져올 한 가지를 고른다면?</p></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>영상 60초 · 1920×1080 · 나레이션 없이 음악과 화면으로 구성. 화면은 모두 코드로 그렸고, 5장의 대시보드는 설명을 위한 예시 화면입니다.</p>
+    <p>토론 뒤에는 인트로 2시간(공장과 데이터의 기본기)을 거쳐 본 강의 1부로 이어집니다.</p>
+  </footer>
+</div>
+
+<script>
+  const v = document.getElementById('film');
+  const btns = [...document.querySelectorAll('#chapters button')];
+  btns.forEach((b) => b.addEventListener('click', () => {
+    v.currentTime = Number(b.dataset.t);
+    const p = v.play(); if (p && p.catch) p.catch(() => {});
+  }));
+  const mark = () => {
+    let cur = 0;
+    btns.forEach((b, i) => { if (v.currentTime + 0.05 >= Number(b.dataset.t)) cur = i; });
+    btns.forEach((b, i) => b.setAttribute('aria-current', String(i === cur && (v.currentTime > 0 || !v.paused))));
+  };
+  v.addEventListener('timeupdate', mark); v.addEventListener('seeked', mark);
+</script>
+</body>
+</html>
